@@ -64,13 +64,18 @@
         
         ctx.font = " 30px Algerian";
         ctx.fillText("Hola como estas",180,50);
-       
         var img = new Image();
         img.src = "./mapache.png";
         img.onload = function() {
             ctx.drawImage(img, 320, 100,75,75);
         };
 
+        const grd = ctx.createLinearGradient(350, 180, 500, 180);
+        grd.addColorStop(0, "red"); 
+        grd.addColorStop(1, "white"); 
+
+        ctx.fillStyle = grd;
+        ctx.fillRect(350, 180, 150, 100);
 
     </script>
     
