@@ -31,6 +31,7 @@
         ctx.strokeRect(320,320,100,100)
         ctx.lineWidth = 5;
         ctx.strokeRect(380,380,100,100)
+       
         ctx.beginPath();
         ctx.moveTo(225, 380);
         ctx.lineTo(280, 200);
@@ -39,7 +40,35 @@
         ctx.fill();
         ctx.closePath();
         ctx.stroke();
+
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.arc(100, 375, 50, 50, 0, 2 * Math.PI);
+        ctx.fillStyle = "rgba(255, 77, 11, 0.6)"
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(200, 375, 50, 50, 0, 2 * Math.PI);
+        ctx.stroke();
+
+
+
+        ctx.beginPath();
+        ctx.arc(150, 445, 50, 0, 1 * Math.PI)
+        ctx.strokeStyle = "rgba(255, 77, 11, 0.6)";
+        ctx.fill();
+        ctx.stroke();
+
+
+        
+        // ctx.font = " 20px Times New Roman";
+        // ctx.fillText("Hola como estas")
        
+    //    var img = new Image();
+    //    img.src ="";
+    //    ctx.drawImage();
+
     </script>
     
 </body>
