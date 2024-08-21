@@ -10,79 +10,94 @@
            
        }
        canvas{
-           background-color: cadetblue;
+           background-color: rgb(196, 227, 228);
        }
 
    </style>
 </head>
 <body>
-    <h1>Hi</h1>
-    <canvas id="myCanvas" width="500" height="500" style="border: 1px solid black"></canvas>
+    
+    <canvas id="myCanvas" width="600" height="600" style="border: 1px solid black"></canvas>
     <script>
         const myCanvas = document.getElementById("myCanvas");
         const ctx = myCanvas.getContext("2d");
 
-        ctx.fillStyle = "red";
-        ctx.fillRect(20,20,100,100);
-        ctx.fillStyle = " rgba(255, 87, 51, 0.6)";
-        ctx.fillRect(120,120,100,100);
-        ctx.fillStyle = "green";
-        ctx.fillRect(220,220,100,100);
-        ctx.strokeRect(320,320,100,100)
-        ctx.lineWidth = 5;
-        ctx.strokeRect(380,380,100,100)
+        // ctx.fillStyle = "red";
+        // ctx.fillRect(20,20,100,100);
+        // ctx.fillStyle = " rgba(255, 87, 51, 0.6)";
+        // ctx.fillRect(120,120,100,100);
+        // ctx.fillStyle = "green";
+        // ctx.fillRect(220,220,100,100);
+        // ctx.strokeRect(320,320,100,100)
+        // ctx.lineWidth = 5;
+        // ctx.strokeRect(380,380,100,100)
        
-        ctx.beginPath();
-        ctx.moveTo(225, 380);
-        ctx.lineTo(280, 200);
-        ctx.lineTo(360, 380);
-        ctx.fillStyle = "rgba(255, 87, 51, 0.6)"
-        ctx.fill();
-        ctx.closePath();
-        ctx.stroke();
+        // ctx.beginPath();
+        // ctx.moveTo(225, 380);
+        // ctx.lineTo(280, 200);
+        // ctx.lineTo(360, 380);
+        // ctx.fillStyle = "rgba(255, 87, 51, 0.6)"
+        // ctx.fill();
+        // ctx.closePath();
+        // ctx.stroke();
 
-        ctx.lineWidth = 3;
-        ctx.beginPath();
-        ctx.arc(100, 375, 50, 50, 0, 2 * Math.PI);
-        ctx.fillStyle = "rgba(255, 77, 11, 0.6)"
-        ctx.fill();
-        ctx.stroke();
+        // ctx.lineWidth = 3;
+        // ctx.beginPath();
+        // ctx.arc(100, 375, 50, 50, 0, 2 * Math.PI);
+        // ctx.fillStyle = "rgba(255, 77, 11, 0.6)"
+        // ctx.fill();
+        // ctx.stroke();
 
-        ctx.beginPath();
-        ctx.arc(200, 375, 50, 50, 0, 2 * Math.PI);
-        ctx.stroke();
+        // ctx.beginPath();
+        // ctx.arc(200, 375, 50, 50, 0, 2 * Math.PI);
+        // ctx.stroke();
 
 
 
-        ctx.beginPath();
-        ctx.arc(150, 445, 50, 0, 1 * Math.PI)
-        ctx.strokeStyle = "rgba(255, 77, 11, 0.6)";
-        ctx.fill();
-        ctx.stroke();
+        // ctx.beginPath();
+        // ctx.arc(150, 445, 50, 0, 1 * Math.PI)
+        // ctx.strokeStyle = "rgba(255, 77, 11, 0.6)";
+        // ctx.fill();
+        // ctx.stroke();
 
 
         
-        ctx.font = " 30px Algerian";
-        ctx.fillText("Hola como estas",180,50);
+        // ctx.font = " 30px Algerian";
+        // ctx.fillText("Hola como estas",180,50);
        
-        var img = new Image();
-        img.src = "./mapache.png";
-        img.onload = function() {
-            ctx.drawImage(img, 320, 100,75,75);
-        };
+        // var img = new Image();
+        // img.src = "./mapache.png";
+        // img.onload = function() {
+        //     ctx.drawImage(img, 320, 100,75,75);
+        // };
 
-        const grd = ctx.createLinearGradient(350, 180, 500, 180);
-        grd.addColorStop(0, "red"); 
-        grd.addColorStop(1, "white"); 
+        // const grd = ctx.createLinearGradient(350, 180, 500, 180);
+        // grd.addColorStop(0, "red"); 
+        // grd.addColorStop(1, "white"); 
 
-        ctx.fillStyle = grd;
-        ctx.fillRect(350, 180, 150, 100);
+        // ctx.fillStyle = grd;
+        // ctx.fillRect(350, 180, 150, 100);
 
-        const grd2 = ctx.createRadialGradient(70, 230, 20, 70, 230, 75); 
-        grd2.addColorStop(0, "red"); 
-        grd2.addColorStop(1, "white");
-        ctx.fillStyle = grd2;
-        ctx.fillRect(10, 180, 150, 100);
+        // const grd2 = ctx.createRadialGradient(70, 230, 20, 70, 230, 75); 
+        // grd2.addColorStop(0, "red"); 
+        // grd2.addColorStop(1, "white");
+        // ctx.fillStyle = grd2;
+        // ctx.fillRect(10, 180, 150, 100);
+
+
+
+        addEventListener("mousedown", (event) => {});
+
+            onmousedown = (event) => {
+
+                        
+                        ctx.beginPath();
+                        ctx.arc(event.x, event.y, 50, 50, 0, 2 * Math.PI);
+                        ctx.fillStyle = "rgba(255, 77, 11, 0.6)"
+                        ctx.fill();
+                        ctx.stroke();
+
+            };
 
 
 
