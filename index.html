@@ -87,6 +87,8 @@
         return Math.floor(Math.random() * max);
         }
 
+        var s=0;
+
 
         addEventListener("mousedown", (event) => {});
 
@@ -94,7 +96,13 @@
 
                         
                         ctx.beginPath();
-                        ctx.arc(event.x, event.y, 50, 50, 0, 2 * Math.PI);
+                        if (s==0) {
+                            ctx.arc(event.x, event.y, 50, 50, 0, 2 * Math.PI);
+                            
+                        } else {
+                            ctx.fillRect(event.x, event.y,100,100);
+                            
+                        }
                         ctx.fill();
                         ctx.stroke();
                         
@@ -104,6 +112,12 @@
                             var c1 =rand(255);
                             var c2=rand(255);
                             var c3=rand(255);
+                            console.log(e);
+                            if (e.isTrusted) {
+                                s=1;
+                            }else{
+                                s=0;
+                            }
                             
                             ctx.fillStyle = "rgba("+c1+","+ c2+","+ c3+", 0.6)"
 
@@ -119,6 +133,10 @@
             };
 
 
+
+
+
+            
 
 
     </script>
