@@ -88,48 +88,35 @@
         }
 
         var s=0;
-
+        var flag=true;
 
         addEventListener("mousedown", (event) => {});
 
             onmousedown = (event) => {
-
-                        
+       
                         ctx.beginPath();
-                        if (s==0) {
+                        if (flag) {
                             ctx.arc(event.x, event.y, 50, 50, 0, 2 * Math.PI);
                             
                         } else {
-                            ctx.fillRect(event.x, event.y,100,100);
+                            ctx.fillRect(event.x-50, event.y-50,100,100);
                             
                         }
                         ctx.fill();
                         ctx.stroke();
                         
-                        addEventListener("mouseover", (e) => {});
+             
+                        addEventListener("mouseout", (e) => {});
+                        flag = !flag;
                         
-                        onmouseover = (e) => {
+                        onmouseout = (e) => {
                             var c1 =rand(255);
                             var c2=rand(255);
                             var c3=rand(255);
-                            console.log(e);
-                            if (e.isTrusted) {
-                                s=1;
-                            }else{
-                                s=0;
-                            }
-                            
+                     
                             ctx.fillStyle = "rgba("+c1+","+ c2+","+ c3+", 0.6)"
-
+                            ctx.lineWidth = 2;
                         };
-
-
-
-
-
-
-
-
             };
 
 
