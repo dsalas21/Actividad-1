@@ -119,13 +119,46 @@
         //                 };
         //     };
 
-        addEventListener("mousemove", (event) => {});
+      
+        // addEventListener("mousemove", (event) => {});
 
-            onmousemove = (event) => {
-                console.log(event);
+        //     onmousemove = (event) => {
+        //         console.log(event);
+        //         ctx.fillStyle = "black";
+        //         ctx.fillRect(event.x-5, event.y-5,5,5);
+        // };
+
+        var x,y=0;
+        var drawing = false;
+        
+        addEventListener("mousedown", (event) => {});
+
+            onmousedown = (event) => {
+                drawing = true;
+                draw(event);  
+            };
+
+            addEventListener("mousemove", (event) => {});
+             onmousemove = (event) => {
+                if (drawing==true) {
+                    draw(event);
+                }
+             };
+
+
+             addEventListener("mouseup", (event) => {});
+                onmouseup = (event) => {
+                    drawing =false;
+                };
+
+             function draw(event) {
+                x=event.x;
+                y=event.y;
                 ctx.fillStyle = "black";
-                ctx.fillRect(event.x-5, event.y-5,5,5);
-        };
+                ctx.fillRect(x-2.5, y-2.5,5,5);
+
+             };
+
 
 
 
