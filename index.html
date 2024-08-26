@@ -83,42 +83,49 @@
         // grd2.addColorStop(1, "white");
         // ctx.fillStyle = grd2;
         // ctx.fillRect(10, 180, 150, 100);
-        function rand(max) {
-        return Math.floor(Math.random() * max);
-        }
+        // function rand(max) {
+        // return Math.floor(Math.random() * max);
+        // }
 
-        var s=0;
-        var flag=true;
+        // var s=0;
+        // var flag=true;
 
-        addEventListener("mousedown", (event) => {});
+        // addEventListener("mousedown", (event) => {});
 
-            onmousedown = (event) => {
+        //     onmousedown = (event) => {
        
-                        ctx.beginPath();
-                        if (flag) {
-                            ctx.arc(event.x, event.y, 50, 50, 0, 2 * Math.PI);
+        //                 ctx.beginPath();
+        //                 if (flag) {
+        //                     ctx.arc(event.x, event.y, 50, 50, 0, 2 * Math.PI);
                             
-                        } else {
-                            ctx.fillRect(event.x-50, event.y-50,100,100);
+        //                 } else {
+        //                     ctx.fillRect(event.x-50, event.y-50,100,100);
                             
-                        }
-                        ctx.fill();
-                        ctx.stroke();
+        //                 }
+        //                 ctx.fill();
+        //                 ctx.stroke();
                         
              
-                        addEventListener("mouseout", (e) => {});
-                        flag = !flag;
+        //                 addEventListener("mouseout", (e) => {});
+        //                 flag = !flag;
                         
-                        onmouseout = (e) => {
-                            var c1 =rand(255);
-                            var c2=rand(255);
-                            var c3=rand(255);
+        //                 onmouseout = (e) => {
+        //                     var c1 =rand(255);
+        //                     var c2=rand(255);
+        //                     var c3=rand(255);
                      
-                            ctx.fillStyle = "rgba("+c1+","+ c2+","+ c3+", 0.6)"
-                            ctx.lineWidth = 2;
-                        };
-            };
+        //                     ctx.fillStyle = "rgba("+c1+","+ c2+","+ c3+", 0.6)"
+        //                     ctx.lineWidth = 2;
+        //                 };
+        //     };
 
+        addEventListener("mousemove", (event) => {});
+
+            onmousemove = (event) => {
+                console.log(event);
+                ctx.fillStyle = "black";
+                ctx.fillRect(event.x-5, event.y-5,5,5);
+        };
 
 
 
