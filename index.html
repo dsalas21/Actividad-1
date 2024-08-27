@@ -189,7 +189,14 @@
                     break;
 
                     case(39):
-                        x=x+10;
+                        
+                        if(x==600){
+                            x=x-10;
+                        }else{
+                            x=x+10;
+
+                        }
+
                     draw(event);
                         //derecha
                     break;
