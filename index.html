@@ -128,39 +128,83 @@
         //         ctx.fillRect(event.x-5, event.y-5,5,5);
         // };
 
-        var x,y=0;
-        var drawing = false;
+        // var x,y=0;
+        // var drawing = false;
         
-        addEventListener("mousedown", (event) => {});
+        // addEventListener("mousedown", (event) => {});
 
-            onmousedown = (event) => {
-                drawing = true;
-                draw(event);  
-            };
+        //     onmousedown = (event) => {
+        //         drawing = true;
+        //         draw(event);  
+        //     };
 
-            addEventListener("mousemove", (event) => {});
-             onmousemove = (event) => {
-                if (drawing==true) {
+        //     addEventListener("mousemove", (event) => {});
+        //      onmousemove = (event) => {
+        //         if (drawing==true) {
+        //             draw(event);
+        //         }
+        //      };
+
+
+        //      addEventListener("mouseup", (event) => {});
+        //         onmouseup = (event) => {
+        //             drawing =false;
+        //         };
+
+        //      function draw(event) {
+        //         x=event.x;
+        //         y=event.y;
+        //         ctx.fillStyle = "black";
+        //         ctx.fillRect(x-2.5, y-2.5,5,5);
+
+        //      };
+
+        var x=15,y=15;
+       // var drawing = false;
+       // ctx.fillRect(x, y,20,20);
+        addEventListener("keydown", (event) => {});
+        
+            onkeydown = (event) => {
+              //  console.log(event);
+            
+                 switch(event.keyCode){
+
+                     case (40):
+                        //abajo
+                        y=y+10;
+                        
+                        draw(event);
+                     break;
+                     
+                     case (38):
+                        //arriba
+                        y=y-10;
+                        draw(event);
+                        break;
+
+                    case(37):
+                        //izquierda
+                        x=x-10;
+                        draw(event);
+                    break;
+
+                    case(39):
+                        x=x+10;
                     draw(event);
-                }
-             };
-
-
-             addEventListener("mouseup", (event) => {});
-                onmouseup = (event) => {
-                    drawing =false;
+                        //derecha
+                    break;
+                 }
+           
                 };
 
-             function draw(event) {
-                x=event.x;
-                y=event.y;
-                ctx.fillStyle = "black";
-                ctx.fillRect(x-2.5, y-2.5,5,5);
 
-             };
+                function draw(event) {
+                    ctx.fillStyle ="rgb(196, 227, 228)";
+                    ctx.fillRect(0, 0,600,600);
+                    ctx.fillStyle = "black";
+                  ctx.fillRect(x, y,15,15);
 
-
-
+                 };
 
 
             
