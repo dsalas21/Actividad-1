@@ -160,52 +160,72 @@
         //      };
 
         var x=5,y=5;
+        var direction='';
        // var drawing = false;
        // ctx.fillRect(x, y,20,20);
         addEventListener("keydown", (event) => {});
         
             onkeydown = (event) => {
-                console.log(event);
+               // console.log(event);
             
                  switch(event.keyCode){
 
                      case (40):
                         //abajo
-                       
-                        //y=y+10;
-                        if(y+10>600){
-                            y=0;
-                        }else{
-                            y+=10;
-                        }
                         
-                        draw(event);
+                        direction='down'
                      break;
                      
                      case (38):
                         //arriba
-                        //y=y-10;
+                     
+
+
+                        direction='up';
+                        //draw(event);
+                        break;
+
+                    case(37):
+                        //izquierda
+                        direction='left';
+                        //draw(event);
+                    break;
+
+                    case(39):
+                        //derecha
+
+                        direction='right';
+
+                        //draw(event);
+                    break;
+                 }
+           
+                };
+
+                function update(){
+
+                    switch (direction){
+                        case 'up':
+
+
                         if(y-10<0){
                             y=600;
                         }else{
                             y-=10;
                         }
-                        draw(event);
-                        break;
 
-                    case(37):
-                        //izquierda
-                        x=x-10;
-                        if(x-10<0){
-                            x=600;
+                            break;
+                            
+                            
+                        case 'down':
+                            if(y+10>600){
+                            y=0;
                         }else{
-                            x-=10;
+                            y+=10;
                         }
-                        draw(event);
-                    break;
+                            break;
 
-                    case(39):
-                        //derecha
+                        case 'right':
 
                         if(x+10>600){
                             x=0;
@@ -213,12 +233,22 @@
                             x+=10;
 
                         }
+                            
+                        break;
+                        case 'left':
+                        x=x-10;
+                        if(x-10<0){
+                            x=600;
+                        }else{
+                            x-=10;
+                        }
+                           
+                        break;
+                    }
+                }
 
-                        draw(event);
-                    break;
-                 }
-           
-                };
+
+
 
 
                 function draw(event) {
@@ -227,7 +257,12 @@
                     ctx.fillStyle = "black";
                   ctx.fillRect(x, y,15,15);
 
+                  update();
+                  requestAnimationFrame(draw);
+
                  };
+
+                 requestAnimationFrame(draw);
 
 
             
