@@ -161,6 +161,7 @@
 
         var x=5,y=5;
         var direction='';
+        var speed=5;
        // var drawing = false;
        // ctx.fillRect(x, y,20,20);
         addEventListener("keydown", (event) => {});
@@ -198,6 +199,11 @@
 
                         //draw(event);
                     break;
+
+                    case(32):
+                        speed+=5;
+
+                        break;
                  }
            
                 };
@@ -211,7 +217,7 @@
                         if(y-10<0){
                             y=600;
                         }else{
-                            y-=10;
+                            y-=speed;
                         }
 
                             break;
@@ -221,7 +227,7 @@
                             if(y+10>600){
                             y=0;
                         }else{
-                            y+=10;
+                            y+=speed;
                         }
                             break;
 
@@ -230,20 +236,24 @@
                         if(x+10>600){
                             x=0;
                         }else{
-                            x+=10;
+                            x+=speed;
 
                         }
                             
                         break;
                         case 'left':
-                        x=x-10;
+                        x-=speed;
                         if(x-10<0){
                             x=600;
                         }else{
-                            x-=10;
+                            x-=speed;
                         }
                            
                         break;
+                        
+
+
+                        
                     }
                 }
 
@@ -254,8 +264,10 @@
                 function draw(event) {
                     ctx.fillStyle ="rgb(196, 227, 228)";
                     ctx.fillRect(0, 0,600,600);
+                    ctx.font = " 30px Algerian";
                     ctx.fillStyle = "black";
-                  ctx.fillRect(x, y,15,15);
+                    ctx.fillRect(x, y,15,15);
+                    ctx.fillText("speed:"+speed,180,50);
 
                   update();
                   requestAnimationFrame(draw);
