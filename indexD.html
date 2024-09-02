@@ -6,10 +6,10 @@
     <title>Document</title>
    <style>
        body {
-           background-color: whitesmoke;
+           background-color: rgb(240, 242, 251);
        }
        canvas {
-           background-color: cadetblue;
+           background-color: rgb(76, 26, 239);
        }
    </style>
 </head>
@@ -21,129 +21,88 @@
 
        
          // tierra
-         ctx.fillStyle = "#B03F23";
-        ctx.fillRect(0, 600, 700, 100);
+      
+        for(var i=0; i<700; i+=25){
+            ctx.fillStyle = "#F1E3A0";
+            if(i % 2 === 0){
+            ctx.fillRect(i, 550, 25, 25);}
+            else{
+                ctx.fillStyle = "#B03F23";
+                ctx.fillRect(i, 550, 700, 25);
+            }
+        }
 
-        // segunda capa de tierra
-        ctx.fillStyle = "#F1E3A0";
-        ctx.fillRect(0, 560, 700, 40);
+
+        for(var i=0; i<700; i+=25){
+            ctx.fillStyle = "#B03F23";
+            if(i % 2 === 0){
+            ctx.fillRect(i, 575, 25, 25);}
+            else{
+                ctx.fillStyle = "#F1E3A0";
+                ctx.fillRect(i, 575, 25, 25);
+            }
+        }
+
+    
+
+        ctx.fillStyle = "#13751A";
+        ctx.fillRect(0, 530, 700, 20);
 
         // suelo verde bajito
         ctx.fillStyle = "#3AC273";
-        ctx.fillRect(0, 510, 700, 50);
+        ctx.fillRect(0, 510, 700, 20);
 
         // pasto
-        ctx.fillStyle = "#13751A";
+        ctx.fillStyle = "#08FC47";
         ctx.fillRect(0, 490, 700, 20);
 
-        // piso de la casa
-        ctx.fillStyle = "#BBB097";
-        ctx.fillRect(150, 450, 400, 40);
+        var img = new Image();
+        img.src = "./palmera-datilera.png";
+        img.onload = function() {
+            ctx.drawImage(img, -80, 245,275,275);
+        };
 
-        // cerca
-        ctx.fillStyle = "#ffbe57";
-        ctx.fillRect(0, 350, 700, 30);
+        
+        var img2 = new Image();
+        img2.src = "./palmera-datilera.png";
+        img2.onload = function() {
+            ctx.drawImage(img2, 460, 245,275,275);
+        };
 
-        ctx.fillStyle = "#faa33b";
-        ctx.fillRect(15, 310, 50, 180);
 
-        ctx.fillStyle = "#faa33b";
-        ctx.beginPath();
-        ctx.moveTo(15, 310);
-        ctx.lineTo(38, 285);
-        ctx.lineTo(65, 310);
-        ctx.closePath();
-        ctx.fill();
+        var img3 = new Image();
+        img3.src = "./anillo.png";
+        img3.onload = function() {
+            for(var i=160; i<450; i+=35){
 
-        ctx.fillStyle = "#faa33b";
-        ctx.fillRect(90, 310, 50, 180);
+                ctx.drawImage(img3, i, 455,25,25);
+            }
+        };
 
-        ctx.fillStyle = "#faa33b";
-        ctx.beginPath();
-        ctx.moveTo(90, 310);
-        ctx.lineTo(113, 285);
-        ctx.lineTo(140, 310);
-        ctx.closePath();
-        ctx.fill();
 
-        ctx.fillStyle = "#faa33b";
-        ctx.fillRect(550, 310, 50, 180);
+        var img4 = new Image();
+        img4.src = "./nubes.png";
+        img4.onload = function() {
+            
+                ctx.drawImage(img4, 25, 25);
+            
+        };
 
-        ctx.fillStyle = "#faa33b";
-        ctx.beginPath();
-        ctx.moveTo(550, 310);
-        ctx.lineTo(573, 285);
-        ctx.lineTo(600, 310);
-        ctx.closePath();
-        ctx.fill();
+        var img5 = new Image();
+        img5.src = "./nube.png";
+        img5.onload = function() {
+            
 
-        ctx.fillStyle = "#faa33b";
-        ctx.fillRect(620, 310, 50, 180);
+                ctx.drawImage(img5, 480, 25);
+                ctx.drawImage(img5, 620, -5);
+            
+        };
 
-        ctx.fillStyle = "#faa33b";
-        ctx.beginPath();
-        ctx.moveTo(620, 310);
-        ctx.lineTo(643, 285);
-        ctx.lineTo(670, 310);
-        ctx.closePath();
-        ctx.fill();
 
-        // cuadro de la casa
-        ctx.fillStyle = "#efb56e";
-        ctx.fillRect(200, 150, 300, 300);
 
-        // rayas
-        ctx.fillStyle = "#6c3300";
-        ctx.fillRect(200, 420, 300, 3);
-        ctx.fillRect(200, 390, 300, 3);
-        ctx.fillRect(200, 360, 300, 3);
-        ctx.fillRect(200, 330, 300, 3);
-        ctx.fillRect(200, 300, 300, 3);
-        ctx.fillRect(200, 270, 300, 3);
-        ctx.fillRect(200, 240, 300, 3);
-        ctx.fillRect(200, 210, 300, 3);
-        ctx.fillRect(200, 180, 300, 3);
+        
 
-        // Chimenea
-        ctx.fillStyle = "#e2e2e2";
-        ctx.fillRect(430, 110, 70, 70);
-
-        ctx.fillStyle = "#747873";
-        ctx.fillRect(415, 90, 100, 30);
-
-        // techo
-        ctx.fillStyle = "#c20801";
-        ctx.beginPath();
-        ctx.moveTo(180, 200);
-        ctx.lineTo(250, 30);
-        ctx.lineTo(550, 200);
-        ctx.closePath();
-        ctx.fill();
-
-        // puerta
-        ctx.fillStyle = "#5f301a";
-        ctx.fillRect(210, 270, 100, 180);
-
-        ctx.fillStyle = "#94592c";
-        ctx.fillRect(215, 275, 90, 170);
-
-        ctx.fillStyle = "white";
-        ctx.beginPath();
-        ctx.arc(295, 375, 5, 0, 2 * Math.PI);
-        ctx.fill();
-
-        // ventana
-        ctx.fillStyle = "#c20801";
-        ctx.fillRect(380, 260, 100, 100);
-
-        ctx.fillStyle = "#BBB097";
-        ctx.fillRect(375, 360, 110, 10);
-
-        ctx.fillStyle = "#ffffff";
-        ctx.fillRect(385, 265, 42, 42);
-        ctx.fillRect(432, 265, 42, 42);
-        ctx.fillRect(385, 313, 42, 42);
-        ctx.fillRect(432, 313, 42, 42);
+   
     </script>
 </body>
 </html>
