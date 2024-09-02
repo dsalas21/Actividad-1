@@ -20,150 +20,130 @@
         const ctx = canvas.getContext("2d");
 
        
-        ctx.fillStyle = "#793500";
-        ctx.fillRect(0, 530, 700, 60);
+         // tierra
+         ctx.fillStyle = "#B03F23";
+        ctx.fillRect(0, 600, 700, 100);
 
-        
-        ctx.fillStyle = "#fffcc2";
-        ctx.fillRect(0, 515, 700, 15);
+        // segunda capa de tierra
+        ctx.fillStyle = "#F1E3A0";
+        ctx.fillRect(0, 560, 700, 40);
 
-       
-        ctx.fillStyle = "black";
-        ctx.fillRect(545, 360, 160, 155);
+        // suelo verde bajito
+        ctx.fillStyle = "#3AC273";
+        ctx.fillRect(0, 510, 700, 50);
 
-        
-        ctx.fillStyle = "#59a900";
-        ctx.fillRect(550, 365, 150, 150);
+        // pasto
+        ctx.fillStyle = "#13751A";
+        ctx.fillRect(0, 490, 700, 20);
 
-       
-        ctx.fillStyle = "#877770";
+        // piso de la casa
+        ctx.fillStyle = "#BBB097";
+        ctx.fillRect(150, 450, 400, 40);
+
+        // cerca
+        ctx.fillStyle = "#ffbe57";
+        ctx.fillRect(0, 350, 700, 30);
+
+        ctx.fillStyle = "#faa33b";
+        ctx.fillRect(15, 310, 50, 180);
+
+        ctx.fillStyle = "#faa33b";
         ctx.beginPath();
-        ctx.arc(685, 380, 5, 0, 2 * Math.PI); 
+        ctx.moveTo(15, 310);
+        ctx.lineTo(38, 285);
+        ctx.lineTo(65, 310);
+        ctx.closePath();
         ctx.fill();
 
+        ctx.fillStyle = "#faa33b";
+        ctx.fillRect(90, 310, 50, 180);
+
+        ctx.fillStyle = "#faa33b";
         ctx.beginPath();
-        ctx.arc(565, 505, 5, 0, 2 * Math.PI); 
+        ctx.moveTo(90, 310);
+        ctx.lineTo(113, 285);
+        ctx.lineTo(140, 310);
+        ctx.closePath();
         ctx.fill();
 
+        ctx.fillStyle = "#faa33b";
+        ctx.fillRect(550, 310, 50, 180);
+
+        ctx.fillStyle = "#faa33b";
         ctx.beginPath();
-        ctx.arc(565, 380, 5, 0, 2 * Math.PI); 
+        ctx.moveTo(550, 310);
+        ctx.lineTo(573, 285);
+        ctx.lineTo(600, 310);
+        ctx.closePath();
         ctx.fill();
 
+        ctx.fillStyle = "#faa33b";
+        ctx.fillRect(620, 310, 50, 180);
+
+        ctx.fillStyle = "#faa33b";
         ctx.beginPath();
-        ctx.arc(685, 505, 5, 0, 2 * Math.PI); 
+        ctx.moveTo(620, 310);
+        ctx.lineTo(643, 285);
+        ctx.lineTo(670, 310);
+        ctx.closePath();
         ctx.fill();
 
-       
-        ctx.fillStyle = "black";
-        ctx.fillRect(345, 405, 120, 110);
-        
-        ctx.fillStyle = "#2BF70F";
-        ctx.fillRect(350, 415, 110, 100);
+        // cuadro de la casa
+        ctx.fillStyle = "#efb56e";
+        ctx.fillRect(200, 150, 300, 300);
 
-        ctx.fillStyle = "black";
-        ctx.fillRect(325, 380, 160, 50);
+        // rayas
+        ctx.fillStyle = "#6c3300";
+        ctx.fillRect(200, 420, 300, 3);
+        ctx.fillRect(200, 390, 300, 3);
+        ctx.fillRect(200, 360, 300, 3);
+        ctx.fillRect(200, 330, 300, 3);
+        ctx.fillRect(200, 300, 300, 3);
+        ctx.fillRect(200, 270, 300, 3);
+        ctx.fillRect(200, 240, 300, 3);
+        ctx.fillRect(200, 210, 300, 3);
+        ctx.fillRect(200, 180, 300, 3);
 
-        ctx.fillStyle = "#2BF70F";
-        ctx.fillRect(330, 385, 150, 40);
+        // Chimenea
+        ctx.fillStyle = "#e2e2e2";
+        ctx.fillRect(430, 110, 70, 70);
 
-        ctx.fillStyle = "#76a0ba";
-        ctx.fillRect(350, 415, 10, 100);
+        ctx.fillStyle = "#747873";
+        ctx.fillRect(415, 90, 100, 30);
 
-        ctx.fillStyle = "#76a0ba";
-        ctx.fillRect(330, 385, 30, 40);
-
-   
-        ctx.fillStyle = "black";
-        ctx.fillRect(95, 225, 160, 290);
-        
-        ctx.fillStyle = "#2085d8";
-        ctx.fillRect(100, 230, 150, 280);
-
-        ctx.fillStyle = "#877770";
+        // techo
+        ctx.fillStyle = "#c20801";
         ctx.beginPath();
-        ctx.arc(115, 250, 5, 0, 2 * Math.PI); 
+        ctx.moveTo(180, 200);
+        ctx.lineTo(250, 30);
+        ctx.lineTo(550, 200);
+        ctx.closePath();
         ctx.fill();
 
+        // puerta
+        ctx.fillStyle = "#5f301a";
+        ctx.fillRect(210, 270, 100, 180);
+
+        ctx.fillStyle = "#94592c";
+        ctx.fillRect(215, 275, 90, 170);
+
+        ctx.fillStyle = "white";
         ctx.beginPath();
-        ctx.arc(235, 250, 5, 0, 2 * Math.PI); 
+        ctx.arc(295, 375, 5, 0, 2 * Math.PI);
         ctx.fill();
 
-        ctx.beginPath();
-        ctx.arc(235, 490, 5, 0, 2 * Math.PI);
-        ctx.fill();
+        // ventana
+        ctx.fillStyle = "#c20801";
+        ctx.fillRect(380, 260, 100, 100);
 
-       
-        ctx.fillStyle = "black";
-        ctx.fillRect(45, 360, 160, 155);
+        ctx.fillStyle = "#BBB097";
+        ctx.fillRect(375, 360, 110, 10);
 
-        ctx.fillStyle = "#ff7c84";
-        ctx.fillRect(50, 365, 150, 150);
-
-        ctx.fillStyle = "#877770";
-        ctx.beginPath();
-        ctx.arc(165, 380, 5, 0, 2 * Math.PI); 
-        ctx.fill();
-
-        ctx.beginPath();
-        ctx.arc(65, 505, 5, 0, 2 * Math.PI); 
-        ctx.fill();
-
-        ctx.beginPath();
-        ctx.arc(65, 380, 5, 0, 2 * Math.PI); 
-        ctx.fill();
-
-        ctx.beginPath();
-        ctx.arc(165, 505, 5, 0, 2 * Math.PI); 
-        ctx.fill();
-
-        
-        ctx.fillStyle = "black";
-        ctx.fillRect(15, 275, 65, 65);
-
-        ctx.fillStyle = "#ca5412";
-        ctx.fillRect(20, 280, 55, 55);
-
-        ctx.fillStyle = "black";
-        ctx.fillRect(25, 285, 7, 7);
-        ctx.fillRect(60, 285, 7, 7);
-        ctx.fillRect(25, 325, 7, 7);
-        ctx.fillRect(60, 325, 7, 7);
-
-        ctx.fillStyle = "black";
-        ctx.fillRect(555, 255, 65, 65);
-
-        ctx.fillStyle = "#ca5412";
-        ctx.fillRect(560, 260, 55, 55);
-
-        ctx.fillStyle = "black";
-        ctx.fillRect(565, 265, 7, 7);
-        ctx.fillRect(565, 303, 7, 7);
-        ctx.fillRect(600, 265, 7, 7);
-        ctx.fillRect(600, 303, 7, 7);
-
-        ctx.fillStyle = "black";
-        ctx.fillRect(55, 55, 65, 65);
-
-        ctx.fillStyle = "#ca5412";
-        ctx.fillRect(60, 60, 55, 55);
-
-        ctx.fillStyle = "black";
-        ctx.fillRect(65, 65, 7, 7);
-        ctx.fillRect(65, 100, 7, 7);
-        ctx.fillRect(100, 65, 7, 7);
-        ctx.fillRect(100, 100, 7, 7);
-
-        ctx.fillStyle = "black";
-        ctx.fillRect(120, 55, 60, 65);
-
-        ctx.fillStyle = "#ca5412";
-        ctx.fillRect(120, 60, 55, 55);
-
-        ctx.fillStyle = "black";
-        ctx.fillRect(125, 65, 7, 7);
-        ctx.fillRect(125, 100, 7, 7);
-        ctx.fillRect(165, 65, 7, 7);
-        ctx.fillRect(165, 100, 7, 7);
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(385, 265, 42, 42);
+        ctx.fillRect(432, 265, 42, 42);
+        ctx.fillRect(385, 313, 42, 42);
+        ctx.fillRect(432, 313, 42, 42);
     </script>
 </body>
 </html>
