@@ -22,146 +22,43 @@
         const myCanvas = document.getElementById("myCanvas");
         const ctx = myCanvas.getContext("2d");
 
-        // ctx.fillStyle = "red";
-        // ctx.fillRect(20,20,100,100);
-        // ctx.fillStyle = " rgba(255, 87, 51, 0.6)";
-        // ctx.fillRect(120,120,100,100);
-        // ctx.fillStyle = "green";
-        // ctx.fillRect(220,220,100,100);
-        // ctx.strokeRect(320,320,100,100)
-        // ctx.lineWidth = 5;
-        // ctx.strokeRect(380,380,100,100)
-       
-        // ctx.beginPath();
-        // ctx.moveTo(225, 380);
-        // ctx.lineTo(280, 200);
-        // ctx.lineTo(360, 380);
-        // ctx.fillStyle = "rgba(255, 87, 51, 0.6)"
-        // ctx.fill();
-        // ctx.closePath();
-        // ctx.stroke();
 
-        // ctx.lineWidth = 3;
-        // ctx.beginPath();
-        // ctx.arc(100, 375, 50, 50, 0, 2 * Math.PI);
-        // ctx.fillStyle = "rgba(255, 77, 11, 0.6)"
-        // ctx.fill();
-        // ctx.stroke();
+        class Rectangulo {
 
-        // ctx.beginPath();
-        // ctx.arc(200, 375, 50, 50, 0, 2 * Math.PI);
-        // ctx.stroke();
+                constructor(h,w,color,x,y,speed){
+                    
+                    this.h=h;
+                    this.w=w;
+                    this.color=color;
+                    this.x=x;
+                    this.y=y;
+                    this.speed=speed;
 
 
+                }
 
-        // ctx.beginPath();
-        // ctx.arc(150, 445, 50, 0, 1 * Math.PI)
-        // ctx.strokeStyle = "rgba(255, 77, 11, 0.6)";
-        // ctx.fill();
-        // ctx.stroke();
-
-
-        
-        // ctx.font = " 30px Algerian";
-        // ctx.fillText("Hola como estas",180,50);
-       
-        // var img = new Image();
-        // img.src = "./mapache.png";
-        // img.onload = function() {
-        //     ctx.drawImage(img, 320, 100,75,75);
-        // };
-
-        // const grd = ctx.createLinearGradient(350, 180, 500, 180);
-        // grd.addColorStop(0, "red"); 
-        // grd.addColorStop(1, "white"); 
-
-        // ctx.fillStyle = grd;
-        // ctx.fillRect(350, 180, 150, 100);
-
-        // const grd2 = ctx.createRadialGradient(70, 230, 20, 70, 230, 75); 
-        // grd2.addColorStop(0, "red"); 
-        // grd2.addColorStop(1, "white");
-        // ctx.fillStyle = grd2;
-        // ctx.fillRect(10, 180, 150, 100);
-        // function rand(max) {
-        // return Math.floor(Math.random() * max);
-        // }
-
-        // var s=0;
-        // var flag=true;
-
-        // addEventListener("mousedown", (event) => {});
-
-        //     onmousedown = (event) => {
-       
-        //                 ctx.beginPath();
-        //                 if (flag) {
-        //                     ctx.arc(event.x, event.y, 50, 50, 0, 2 * Math.PI);
-                            
-        //                 } else {
-        //                     ctx.fillRect(event.x-50, event.y-50,100,100);
-                            
-        //                 }
-        //                 ctx.fill();
-        //                 ctx.stroke();
-                        
-             
-        //                 addEventListener("mouseout", (e) => {});
-        //                 flag = !flag;
-                        
-        //                 onmouseout = (e) => {
-        //                     var c1 =rand(255);
-        //                     var c2=rand(255);
-        //                     var c3=rand(255);
-                     
-        //                     ctx.fillStyle = "rgba("+c1+","+ c2+","+ c3+", 0.6)"
-        //                     ctx.lineWidth = 2;
-        //                 };
-        //     };
-
-      
-        // addEventListener("mousemove", (event) => {});
-
-        //     onmousemove = (event) => {
-        //         console.log(event);
-        //         ctx.fillStyle = "black";
-        //         ctx.fillRect(event.x-5, event.y-5,5,5);
-        // };
-
-        // var x,y=0;
-        // var drawing = false;
-        
-        // addEventListener("mousedown", (event) => {});
-
-        //     onmousedown = (event) => {
-        //         drawing = true;
-        //         draw(event);  
-        //     };
-
-        //     addEventListener("mousemove", (event) => {});
-        //      onmousemove = (event) => {
-        //         if (drawing==true) {
-        //             draw(event);
-        //         }
-        //      };
+                colision(other){
+                    
+                    if(
+                    this.x<other.x+other.w &&
+                    this.x+this.w>other.x && 
+                    this.y < other.y + other.h && 
+                    this.y + this.h > other.y){
+                        return true;
+                    }
+                    else return false;
 
 
-        //      addEventListener("mouseup", (event) => {});
-        //         onmouseup = (event) => {
-        //             drawing =false;
-        //         };
+                }
+            }
 
-        //      function draw(event) {
-        //         x=event.x;
-        //         y=event.y;
-        //         ctx.fillStyle = "black";
-        //         ctx.fillRect(x-2.5, y-2.5,5,5);
-
-        //      };
-
-        var x=5,y=5;
+        player= new Rectangulo(30,30,"black",5,5,5);
+        target= new  Rectangulo(15,15,"red",250,250,0);
+        function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+        }
         var direction='';
-        var speed=5;
+       
        // var drawing = false;
        // ctx.fillRect(x, y,20,20);
         addEventListener("keydown", (event) => {});
@@ -201,7 +98,7 @@
                     break;
 
                     case(32):
-                        speed+=5;
+                    player.speed+=5;
 
                         break;
                  }
@@ -214,39 +111,39 @@
                         case 'up':
 
 
-                        if(y-10<0){
-                            y=600;
+                        if(player.y-10<0){
+                            player.y=600;
                         }else{
-                            y-=speed;
+                            player.y-=player.speed;
                         }
 
                             break;
                             
                             
                         case 'down':
-                            if(y+10>600){
-                            y=0;
+                            if(player.y+10>600){
+                                player.y=0;
                         }else{
-                            y+=speed;
+                            player.y+=player.speed;
                         }
                             break;
 
                         case 'right':
 
-                        if(x+10>600){
-                            x=0;
+                        if(player.x+10>600){
+                            player.x=0;
                         }else{
-                            x+=speed;
+                            player.x+=player.speed;
 
                         }
                             
                         break;
                         case 'left':
-                        x-=speed;
-                        if(x-10<0){
-                            x=600;
+                        player.x-=player.speed;
+                        if(player.x-10<0){
+                            player.x=600;
                         }else{
-                            x-=speed;
+                            player.x-=player.speed;
                         }
                            
                         break;
@@ -255,6 +152,16 @@
 
                         
                     }
+                    
+                    const isColliding = player.colision(target);
+
+                    //console.log(isColliding)
+                    if(isColliding){
+                        target.x=getRandomInt(585);
+                        target.y=getRandomInt(585);
+                    }
+
+
                 }
 
 
@@ -265,9 +172,12 @@
                     ctx.fillStyle ="rgb(196, 227, 228)";
                     ctx.fillRect(0, 0,600,600);
                     ctx.font = " 30px Algerian";
-                    ctx.fillStyle = "black";
-                    ctx.fillRect(x, y,15,15);
-                    ctx.fillText("speed:"+speed,180,50);
+                    ctx.fillStyle = target.color;
+                    ctx.fillRect(target.x, target.y,target.h,target.w);
+
+                    ctx.fillStyle = player.color;
+                    ctx.fillRect(player.x, player.y,player.h,player.w);
+                    ctx.fillText("speed:"+player.speed,180,50);
 
                   update();
                   requestAnimationFrame(draw);
