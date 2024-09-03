@@ -50,14 +50,20 @@
 
 
                 }
+
+                
+
+               
             }
 
-        player= new Rectangulo(30,30,"black",5,5,5);
+        player= new Rectangulo(20,20,"black",5,5,5);
         target= new  Rectangulo(15,15,"red",250,250,0);
+        wall= new Rectangulo(30,200,"gray",200,420,null);
         function getRandomInt(max) {
         return Math.floor(Math.random() * max);
         }
         var direction='';
+        var colisionando = false;
        
        // var drawing = false;
        // ctx.fillRect(x, y,20,20);
@@ -72,6 +78,7 @@
                         //abajo
                         
                         direction='down'
+                        colisionando = false;
                      break;
                      
                      case (38):
@@ -80,12 +87,14 @@
 
 
                         direction='up';
+                        colisionando = false;
                         //draw(event);
                         break;
 
                     case(37):
                         //izquierda
                         direction='left';
+                        colisionando = false;
                         //draw(event);
                     break;
 
@@ -93,6 +102,7 @@
                         //derecha
 
                         direction='right';
+                        colisionando = false;
 
                         //draw(event);
                     break;
@@ -106,16 +116,25 @@
                 };
 
                 function update(){
+                    const colision2=player.colision(wall);
+
+                    if (colision2) {
+                        colisionando = true;
+                    } else {
+                        colisionando = false;
+                    }
 
                     switch (direction){
                         case 'up':
-
-
-                        if(player.y-10<0){
-                            player.y=600;
-                        }else{
-                            player.y-=player.speed;
-                        }
+                            if(player.y-10<0){
+                                player.y=600;
+                            }else{
+                                if (!colisionando) {
+                                    player.y -= player.speed; 
+                                }else{
+                                    player.y+=player.speed+6;
+                                }
+                            }
 
                             break;
                             
@@ -123,28 +142,35 @@
                         case 'down':
                             if(player.y+10>600){
                                 player.y=0;
-                        }else{
-                            player.y+=player.speed;
-                        }
+                            }else{
+                                if (!colisionando) {
+                                    player.y += player.speed; 
+                                }else{
+                                    player.y-=player.speed+6;
+                                }
+                            }
+
                             break;
 
                         case 'right':
 
-                        if(player.x+10>600){
-                            player.x=0;
-                        }else{
-                            player.x+=player.speed;
-
-                        }
+                            if(player.x+10>600){
+                                player.x=0;
+                            }else{
+                                if (!colisionando) {
+                                    player.x += player.speed;
+                                }                
+                            }
                             
                         break;
                         case 'left':
-                        player.x-=player.speed;
-                        if(player.x-10<0){
-                            player.x=600;
-                        }else{
-                            player.x-=player.speed;
-                        }
+                            if(player.x-10<0){
+                                player.x=600;
+                            }else{
+                                if (!colisionando) {
+                                    player.x -= player.speed; 
+                                }
+                            }
                            
                         break;
                         
@@ -153,14 +179,14 @@
                         
                     }
                     
+                    
                     const isColliding = player.colision(target);
 
-                    //console.log(isColliding)
+                   
                     if(isColliding){
                         target.x=getRandomInt(585);
                         target.y=getRandomInt(585);
                     }
-
 
                 }
 
@@ -174,7 +200,8 @@
                     ctx.font = " 30px Algerian";
                     ctx.fillStyle = target.color;
                     ctx.fillRect(target.x, target.y,target.h,target.w);
-
+                    ctx.fillStyle = wall.color;
+                    ctx.fillRect(wall.x, wall.y,wall.w,wall.h);
                     ctx.fillStyle = player.color;
                     ctx.fillRect(player.x, player.y,player.h,player.w);
                     ctx.fillText("speed:"+player.speed,180,50);
