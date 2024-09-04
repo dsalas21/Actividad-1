@@ -22,6 +22,7 @@
         const myCanvas = document.getElementById("myCanvas");
         const ctx = myCanvas.getContext("2d");
         var score=0;
+        var pause = false; 
 
 
         class Rectangulo {
@@ -114,12 +115,17 @@
                     break;
 
                     case(32):
-                    player.speed+=5;
+                  //  player.speed+=5;
+                    pause = !pause;
 
                         break;
                  }
            
                 };
+
+
+
+                
 
                 function update(){
                     
@@ -213,6 +219,39 @@
                         }
 
                     })
+
+                    if(pause){
+
+                        switch(direction)
+                            {
+                                case 'up':
+                                    player.y +=player.speed; 
+                                break;
+                                case 'down':
+                                    player.y -=player.speed;
+                                break;
+                                case 'right':
+                                    player.x -=player.speed;
+                                break;
+                                case 'left':
+                                    player.x +=player.speed;
+                                break;
+                            }
+
+                            ctx.fillStyle ="rgb(200, 197, 196,0.5)";
+                            ctx.fillRect(0, 0,600,600);
+                            
+                            ctx.fillText("Pause:",180,200);
+
+
+
+
+                    }
+
+
+
+
+                    
 
                 }
 
