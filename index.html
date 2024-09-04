@@ -21,6 +21,7 @@
     <script>
         const myCanvas = document.getElementById("myCanvas");
         const ctx = myCanvas.getContext("2d");
+        var score=0;
 
 
         class Rectangulo {
@@ -46,7 +47,7 @@
                     this.y + this.h > other.y){
                         return true;
                     }
-                    else return false;
+                    return false;
 
 
                 }
@@ -56,14 +57,19 @@
                
             }
 
-        player= new Rectangulo(20,20,"black",5,5,5);
+            walls=[];
+            
+            walls.push(new Rectangulo(30,200,"gray",200,420,null));
+            walls.push(new Rectangulo(300,20,"gray",100,220,null));
+            walls.push(new Rectangulo(30,200,"gray",100,220,null));
+            
+        player= new Rectangulo(30,30,"black",5,5,5);
         target= new  Rectangulo(15,15,"red",250,250,0);
-        wall= new Rectangulo(30,200,"gray",200,420,null);
         function getRandomInt(max) {
         return Math.floor(Math.random() * max);
         }
         var direction='';
-        var colisionando = false;
+       
        
        // var drawing = false;
        // ctx.fillRect(x, y,20,20);
@@ -78,7 +84,7 @@
                         //abajo
                         
                         direction='down'
-                        colisionando = false;
+                       
                      break;
                      
                      case (38):
@@ -87,14 +93,14 @@
 
 
                         direction='up';
-                        colisionando = false;
+                        
                         //draw(event);
                         break;
 
                     case(37):
                         //izquierda
                         direction='left';
-                        colisionando = false;
+                        
                         //draw(event);
                     break;
 
@@ -102,7 +108,7 @@
                         //derecha
 
                         direction='right';
-                        colisionando = false;
+                        
 
                         //draw(event);
                     break;
@@ -116,24 +122,18 @@
                 };
 
                 function update(){
-                    const colision2=player.colision(wall);
+                    
 
-                    if (colision2) {
-                        colisionando = true;
-                    } else {
-                        colisionando = false;
-                    }
+
 
                     switch (direction){
                         case 'up':
                             if(player.y-10<0){
                                 player.y=600;
                             }else{
-                                if (!colisionando) {
+                                
                                     player.y -= player.speed; 
-                                }else{
-                                    player.y+=player.speed+6;
-                                }
+
                             }
 
                             break;
@@ -143,11 +143,9 @@
                             if(player.y+10>600){
                                 player.y=0;
                             }else{
-                                if (!colisionando) {
+                                
                                     player.y += player.speed; 
-                                }else{
-                                    player.y-=player.speed+6;
-                                }
+                                
                             }
 
                             break;
@@ -157,9 +155,9 @@
                             if(player.x+10>600){
                                 player.x=0;
                             }else{
-                                if (!colisionando) {
+                                
                                     player.x += player.speed;
-                                }                
+                                               
                             }
                             
                         break;
@@ -167,9 +165,9 @@
                             if(player.x-10<0){
                                 player.x=600;
                             }else{
-                                if (!colisionando) {
+                                
                                     player.x -= player.speed; 
-                                }
+                                
                             }
                            
                         break;
@@ -186,9 +184,49 @@
                     if(isColliding){
                         target.x=getRandomInt(585);
                         target.y=getRandomInt(585);
+                        score+=5;
                     }
 
+                    
+
+
+                    walls.forEach((wall)=>{
+
+
+                        if (player.colision(wall)) {
+    
+                        switch(direction)
+                        {
+                            case 'up':
+                                player.y +=player.speed; 
+                            break;
+                            case 'down':
+                                player.y -=player.speed;
+                            break;
+                            case 'right':
+                                player.x -=player.speed;
+                            break;
+                            case 'left':
+                                player.x +=player.speed;
+                            break;
+                        }
+                        }
+
+                    })
+
                 }
+
+
+		
+
+                function DraWalls(){
+                        walls.forEach((wall) => {
+                            ctx.beginPath();
+                            ctx.fillStyle = wall.color;
+                            ctx.fillRect(wall.x, wall.y, wall.w, wall.h);
+                            ctx.closePath();
+                        });
+                    }
 
 
 
@@ -200,11 +238,13 @@
                     ctx.font = " 30px Algerian";
                     ctx.fillStyle = target.color;
                     ctx.fillRect(target.x, target.y,target.h,target.w);
-                    ctx.fillStyle = wall.color;
-                    ctx.fillRect(wall.x, wall.y,wall.w,wall.h);
+                    // ctx.fillStyle = wall.color;
+                    // ctx.fillRect(wall.x, wall.y,wall.w,wall.h);
+                    DraWalls();
+                    
                     ctx.fillStyle = player.color;
                     ctx.fillRect(player.x, player.y,player.h,player.w);
-                    ctx.fillText("speed:"+player.speed,180,50);
+                    ctx.fillText("Score:"+score,180,50);
 
                   update();
                   requestAnimationFrame(draw);
